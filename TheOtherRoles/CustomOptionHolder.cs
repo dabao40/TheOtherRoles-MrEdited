@@ -343,6 +343,12 @@ namespace TheOtherRoles {
         public static CustomOption kataomoiStalkingFadeTime;
         public static CustomOption kataomoiSearchCooldown;
         public static CustomOption kataomoiSearchDuration;
+
+        public static CustomOption gmEnabled;
+        public static CustomOption gmIsHost;
+        public static CustomOption gmDiesAtStart;
+        public static CustomOption gmCanWarp;
+        public static CustomOption gmCanKill;
         // ===========================================================
 
         public static CustomOption modifiersAreHidden;
@@ -824,6 +830,12 @@ namespace TheOtherRoles {
             madmateShortTasks = CustomOption.Create(916, Types.Crewmate, new TranslationInfo("Opt-Madmate", 6), 0f, 0f, 23f, 1f, madmateNoticeImpostors);
             madmateLongTasks = CustomOption.Create(917, Types.Crewmate, new TranslationInfo("Opt-Madmate", 7), 0f, 0f, 15f, 1f, madmateNoticeImpostors);
             madmateExileCrewmate = CustomOption.Create(918, Types.Crewmate, new TranslationInfo("Opt-Madmate", 8), false, madmateSpawnRate);
+
+            gmEnabled = CustomOption.Create(100000, cs(GM.color, "GM"), false, null, true);
+            gmIsHost = CustomOption.Create(100001, "GM Is Always The Host", true, gmEnabled);
+            gmCanWarp = CustomOption.Create(100002, "GM Can Wrap To Players", true, gmEnabled);
+            gmCanKill = CustomOption.Create(100003, "GM Can Kill", false, gmEnabled);
+            gmDiesAtStart = CustomOption.Create(100004, "GM Dies At The Beginning", true, gmEnabled);
 
             // Modifier (1000 - 1999)
             modifiersAreHidden = CustomOption.Create(1009, Types.Modifier, new TranslationInfo("Opt-General", 56, Color.yellow), true, null, true);
