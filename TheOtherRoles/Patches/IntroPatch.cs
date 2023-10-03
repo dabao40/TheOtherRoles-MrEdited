@@ -284,10 +284,21 @@ namespace TheOtherRoles.Patches {
              * This code is redundant, but this part should be decoupled from the original code
              * to merge future changes
              */
-            if (CachedPlayer.LocalPlayer.PlayerControl == Madmate.madmate || Helpers.isNeutral(CachedPlayer.LocalPlayer.PlayerControl)) {
+            if (CachedPlayer.LocalPlayer.PlayerControl == Madmate.madmate || Helpers.isNeutral(CachedPlayer.LocalPlayer.PlayerControl) || CachedPlayer.LocalPlayer.PlayerControl == GM.gm) {
                 var soloTeam = new Il2CppSystem.Collections.Generic.List<PlayerControl>();
                 soloTeam.Add(CachedPlayer.LocalPlayer.PlayerControl);
                 yourTeam = soloTeam;
+            }
+
+            if (CachedPlayer.LocalPlayer.PlayerControl != GM.gm)
+            {
+                var newTeam = new Il2CppSystem.Collections.Generic.List<PlayerControl>();
+                foreach (PlayerControl p in yourTeam)
+                {
+                    if (p != GM.gm)
+                        newTeam.Add(p);
+                }
+                yourTeam = newTeam;
             }
 
             // Add the Spy to the Impostor team (for the Impostors)
